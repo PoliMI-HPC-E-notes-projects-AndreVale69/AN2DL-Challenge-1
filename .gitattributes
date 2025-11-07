@@ -1,0 +1,3 @@
+notebooks/submissions/0.9537-PainTCNBiLSTMAttn_final_mul0.7_bs16_dropout0.4_width32.csv !text !filter !merge !diff
+notebooks/submissions/0.9582-PainTCNBiLSTMAttn_final_mul0.7_bs16_dropout0.4_width32.csv !text !filter !merge !diff
+*.csv !text !filter !merge !diff
