@@ -1,0 +1,10 @@
+# Jupyter Notebook dependencies
+jupyter
+ipykernel
+
+# Data Science libraries
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
