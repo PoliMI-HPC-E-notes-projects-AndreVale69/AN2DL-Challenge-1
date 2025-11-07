@@ -1,4 +1,43 @@
-# AN2DL [2025-2026] - Challenge 1: Time Series Classification
+<h1>AN2DL [2025-2026] - Challenge 1: Time Series Classification</h1>
+
+- [Prerequisites](#prerequisites)
+- [Dataset Description](#dataset-description)
+  - [🏴‍☠️ The Pirate Pain Dataset](#️-the-pirate-pain-dataset)
+  - [⚓ Files](#-files)
+  - [🧭 Data Overview](#-data-overview)
+  - [🏴‍☠️ Task](#️-task)
+  - [⚙️ Data Loading](#️-data-loading)
+  - [🗺️ Validation](#️-validation)
+
+---
+
+## Prerequisites
+
+Since data files are large, you need to download git-lfs to clone this repository:
+
+```bash
+# Install git-lfs (if not already installed)
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-get install git-lfs
+
+# Initialize git-lfs in your repository (once per machine)
+git lfs install
+
+# Clone the repository
+git clone <repository-url>
+cd AN2DL-Challenge-1
+# Pull the large data files
+git lfs pull
+```
+
+If you have already cloned the repository without git-lfs, run the following commands inside the repository folder:
+
+```bash
+git lfs install
+git lfs pull
+```
+
+---
 
 ## Dataset Description
 
