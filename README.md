@@ -37,6 +37,27 @@ git lfs install
 git lfs pull
 ```
 
+Now, you should have all the data files in place.
+To run the provided notebooks, make sure you have the required Python packages installed:
+
+```bash
+# Create a virtual environment
+cd AN2DL-Challenge-1 # if not already in the repo folder
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows use .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+If you are still having issues, please refer to the [official python venv documentation](https://docs.python.org/3/library/venv.html) for more details on setting up virtual environments.
+
+Once the environment is set up, you can run the Jupyter notebooks provided in this repository:
+
+```bash
+jupyter notebook
+```
+
+And navigate to the notebook files in your web browser (usually at `http://localhost:8888`).
+
 ---
 
 ## Dataset Description
