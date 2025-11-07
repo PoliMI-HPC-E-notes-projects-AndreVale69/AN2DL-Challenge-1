@@ -8,6 +8,7 @@ pandas
 matplotlib
 seaborn
 scikit-learn
+torch
 
 # Utilities
 joblib # for artifact management + caching
