@@ -30,12 +30,13 @@ cd AN2DL-Challenge-1
 git lfs pull
 ```
 
-If you have already cloned the repository without git-lfs, run the following commands inside the repository folder:
-
-```bash
-git lfs install
-git lfs pull
-```
+> [!TIP]
+> If you have already cloned the repository without git-lfs, run the following commands inside the repository folder:
+>
+> ```bash
+> git lfs install
+> git lfs pull
+> ```
 
 Now, you should have all the data files in place.
 To run the provided notebooks, make sure you have the required Python packages installed:
@@ -45,12 +46,13 @@ To run the provided notebooks, make sure you have the required Python packages i
 cd AN2DL-Challenge-1 # if not already in the repo folder
 python3 -m venv .venv
 source .venv/bin/activate  # On Windows use .venv\Scripts\activate
-pip install -r requirements.txt
+# Install jupyter
+pip install jupyter ipykernel
 ```
 
 If you are still having issues, please refer to the [official python venv documentation](https://docs.python.org/3/library/venv.html) for more details on setting up virtual environments.
 
-Once the environment is set up, you can run the Jupyter notebooks provided in this repository:
+Once the environment is set up, run the prerequisite notebook to install all other dependencies (CPU or GPU version):
 
 ```bash
 jupyter notebook
