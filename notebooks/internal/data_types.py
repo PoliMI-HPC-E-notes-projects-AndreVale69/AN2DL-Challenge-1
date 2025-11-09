@@ -81,9 +81,15 @@ class DataSetV2(DataSet):
         X_dyn_num_train (np.ndarray): Numerical dynamic features for training.
         X_dyn_num_val (np.ndarray): Numerical dynamic features for validation.
         X_dyn_num_test (np.ndarray): Numerical dynamic features for testing.
+        X_surv_train (list[np.ndarray]): List of survival analysis features for training.
+        X_surv_val (list[np.ndarray]): List of survival analysis features for validation.
+        X_surv_test (list[np.ndarray]): List of survival analysis features for testing.
         feat_eng (FeatureEngineeringConfig | dict): Feature engineering configuration.
     """
     X_dyn_num_train: np.ndarray
     X_dyn_num_val: np.ndarray
     X_dyn_num_test: np.ndarray
+    X_surv_train: list[np.ndarray]
+    X_surv_val: list[np.ndarray]
+    X_surv_test: list[np.ndarray]
     feat_eng: Union[FeatureEngineeringConfig, dict[str, bool | int]]
