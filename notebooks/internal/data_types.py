@@ -71,6 +71,40 @@ class DataSet(dict):
     scaler_sta: StandardScaler
     label_map: Union[LabelMap, dict[str, int]]
 
+    def to_dict(self) -> dict:
+        from dataclasses import asdict
+        return asdict(self)
+
+    # Mapping protocol helpers so dict(instance) and mapping-style access work
+    def keys(self):
+        return self.to_dict().keys()
+
+    def items(self):
+        return self.to_dict().items()
+
+    def values(self):
+        return self.to_dict().values()
+
+    def __getitem__(self, key):
+        return self.to_dict()[key]
+
+    def __iter__(self):
+        return iter(self.keys())
+
+    def __len__(self):
+        return len(self.to_dict())
+
+    def get(self, key, default=None):
+        return self.to_dict().get(key, default)
+
+    def __contains__(self, key):
+        return key in self.to_dict()
+
+    def __or__(self, other):
+        if isinstance(other, dict):
+            return {**self.to_dict(), **other}
+        return NotImplemented
+
 @dataclass
 class DataSetV2(DataSet):
     """
