@@ -38,7 +38,7 @@ class FeatureEngineeringConfig:
     window: int
 
 @dataclass
-class DataSet(dict):
+class DataSet:
     """
     Data structure for storing training, validation, and test datasets along with scalers and label mappings.
 
@@ -75,7 +75,6 @@ class DataSet(dict):
         from dataclasses import asdict
         return asdict(self)
 
-    # Mapping protocol helpers so dict(instance) and mapping-style access work
     def keys(self):
         return self.to_dict().keys()
 
