@@ -12,3 +12,5 @@ pandas-stubs
 
 # Utilities
 joblib # for artifact management + caching
+gputil # for GPU management
+psutil # for system and process utilities
