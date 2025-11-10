@@ -31,10 +31,12 @@ class FeatureEngineeringConfig:
     Attributes:
         delta (bool): Whether to compute delta features.
         rolling_std (bool): Whether to compute rolling standard deviation features.
+        seq_summaries (bool): Whether to compute sequence-level summary statistics.
         window (int): Window size for rolling calculations.
     """
     delta: bool
     rolling_std: bool
+    seq_summaries: bool
     window: int
 
 @dataclass
@@ -117,6 +119,10 @@ class DataSetV2(DataSet):
         X_surv_train (list[np.ndarray]): List of survival analysis features for training.
         X_surv_val (list[np.ndarray]): List of survival analysis features for validation.
         X_surv_test (list[np.ndarray]): List of survival analysis features for testing.
+        x_dyn_summ_train (np.ndarray): Sequence-level summary statistics for training.
+        X_dyn_summ_val (np.ndarray): Sequence-level summary statistics for validation.
+        X_dyn_summ_test (np.ndarray): Sequence-level summary statistics for testing.
+        scaler_dyn_summ (StandardScaler): Scaler for sequence-level summary statistics.
         feat_eng (FeatureEngineeringConfig | dict): Feature engineering configuration.
     """
     X_dyn_num_train: np.ndarray
@@ -125,4 +131,10 @@ class DataSetV2(DataSet):
     X_surv_train: list[np.ndarray]
     X_surv_val: list[np.ndarray]
     X_surv_test: list[np.ndarray]
+    # Sequence-level summaries statistics (mean, std, min, max, etc.)
+    X_dyn_summ_train: np.ndarray
+    X_dyn_summ_val: np.ndarray
+    X_dyn_summ_test: np.ndarray
+    scaler_dyn_summ: StandardScaler
+    # feature engineering configuration
     feat_eng: Union[FeatureEngineeringConfig, dict[str, bool | int]]
