@@ -95,7 +95,7 @@ class PainTCNBiLSTMAttnTrainer:
         model.p_drop_summ = 1.0  # always drop summary during warm-up
 
         # build optimizer on current trainable params
-        criterion = CBFocalLoss(y_train, beta=0.999, gamma=2.0).to(self._device)
+        criterion = CBFocalLoss(y_train, beta=0.999, gamma=2.0, alpha=tensor(base_w, device=self._device))
         optimizer = AdamW(self._build_param_groups(model), lr=1e-3)
         scheduler = ReduceLROnPlateau(
             optimizer, # optimizer

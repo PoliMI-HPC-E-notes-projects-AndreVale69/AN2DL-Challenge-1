@@ -18,12 +18,18 @@ class CBFocalLoss(Module):
     Cui, Y., Jia, M., Lin, T. Y., Song, Y., & Belongie, S. (2019). Class-Balanced Loss Based on Effective Number of Samples.
     https://arxiv.org/abs/1901.05555
     """
-    def __init__(self, labels: ndarray, beta: float = 0.999, gamma: float = 2.0, classes: list[int] = (0, 1, 2)):
+    def __init__(self, labels: ndarray, beta: float = 0.999, gamma: float = 2.0, classes: list[int] = (0, 1, 2),
+                 alpha: Tensor | None = None
+                 ):
         super().__init__()
         self.gamma = gamma
         classes = array(list(classes))
         # counts of each class in the dataset (num_classes,)
         counts  = bincount(labels, minlength=len(classes)).astype(np_float32)
+        if alpha is None:
+            alpha = tensor([1.0] * len(classes), dtype=torch_float32)
+        # apply alpha weights to counts
+        counts = counts * alpha.numpy()
         # effective number of samples per class (num_classes,)
         weights = (1.0 - beta) / maximum(1.0 - power(beta, counts), 1e-12)
         # weights normalization (num_classes,)
