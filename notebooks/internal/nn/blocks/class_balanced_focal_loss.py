@@ -1,8 +1,8 @@
 """
 Implementation of Class-Balanced Focal Loss for multi-class classification tasks.
 """
-from numpy import array, bincount, power, maximum, float32 as np_float32, ndarray
-from torch import tensor, float32 as torch_float32, softmax, Tensor
+from numpy import bincount, float32 as np_float32, ndarray
+from torch import tensor, float32 as torch_float32, softmax, Tensor, ones, as_tensor, pow as torch_pow, clamp
 from torch.nn import Module, CrossEntropyLoss
 
 
@@ -19,23 +19,39 @@ class CBFocalLoss(Module):
     https://arxiv.org/abs/1901.05555
     """
     def __init__(self, labels: ndarray, beta: float = 0.999, gamma: float = 2.0, classes: list[int] = (0, 1, 2),
-                 alpha: Tensor | None = None
-                 ):
+                 alpha: Tensor | ndarray | list[float] | None = None):
         super().__init__()
         self.gamma = gamma
-        classes = array(list(classes))
-        # counts of each class in the dataset (num_classes,)
-        counts  = bincount(labels, minlength=len(classes)).astype(np_float32)
+        num_classes = len(classes)
+
+        # counts per class as torch tensor (CPU is fine; we'll register buffer later)
+        counts = bincount(labels, minlength=num_classes).astype(np_float32)
+        counts = tensor(counts, dtype=torch_float32)
+
+        # alpha -> torch.float32 tensor
         if alpha is None:
-            alpha = tensor([1.0] * len(classes), dtype=torch_float32)
-        # apply alpha weights to counts
-        counts = counts * alpha.numpy()
-        # effective number of samples per class (num_classes,)
-        weights = (1.0 - beta) / maximum(1.0 - power(beta, counts), 1e-12)
-        # weights normalization (num_classes,)
-        weights = weights / weights.sum() * len(classes)
-        self.register_buffer('weights', tensor(weights, dtype=torch_float32))
-        self.ce = CrossEntropyLoss(reduction='none')
+            alpha_t = ones(num_classes, dtype=torch_float32)
+        else:
+            alpha_t = as_tensor(alpha.cpu(), dtype=torch_float32)
+
+        # apply alpha to counts BEFORE effective-number weighting
+        counts *= alpha_t
+
+        # effective number weights: (1 - beta) / (1 - beta^n_c)
+        beta_t = tensor(beta, dtype=torch_float32)
+        # guard against zero counts
+        denominator = 1.0 - torch_pow(beta_t, clamp(counts, min=1e-12))
+        weights = (1.0 - beta_t) / clamp(denominator, min=1e-12)
+
+        # normalize to mean 1.0 (optional but common)
+        weights = weights / weights.sum() * num_classes
+
+        # register as buffer so it moves with .to(device)
+        self.register_buffer("weights", weights)
+
+
+        # per-sample CE
+        self.ce = CrossEntropyLoss(reduction="none")
 
     def forward(self, logits: Tensor, target: Tensor) -> Tensor:
         """
@@ -52,13 +68,21 @@ class CBFocalLoss(Module):
         :param target: True class labels of shape (B,).
         :return: Computed class-balanced focal loss as a scalar tensor.
         """
-        # Cross-entropy loss per sample (B,)
+        # Ensure correct dtypes
+        target = target.long()
+
+        # Per-sample CE (B,)
         ce = self.ce(logits, target)
-        # Predicted probability for the true class (B,)
-        pt = softmax(logits, dim=1).gather(1, target[:,None]).squeeze(1)
-        # Focal loss modulating factor
-        focal = (1 - pt).pow(self.gamma) * ce
-        # Class weights for each sample (B,)
-        w = self.weights[target]
-        # Weighted focal loss
+
+        # p_t for the true class (B,)
+        pt = softmax(logits, dim=1).gather(1, target.unsqueeze(1)).squeeze(1)
+        # numerical safety
+        pt = pt.clamp_(1e-6, 1 - 1e-6)
+
+        # Focal modulation
+        focal = (1.0 - pt).pow(self.gamma) * ce
+
+        # Class weights per sample; make sure buffer is on same device as logits
+        w = self.weights.to(logits.device).index_select(0, target)
+
         return (w * focal).mean()

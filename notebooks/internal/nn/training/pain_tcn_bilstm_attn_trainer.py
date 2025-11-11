@@ -9,7 +9,7 @@ from numpy import ndarray
 from numpy.random import beta
 from sklearn.metrics import f1_score, recall_score, confusion_matrix
 from sklearn.utils.class_weight import compute_class_weight
-from torch import device as torch_device, tensor, no_grad, Tensor, randperm, cat, save
+from torch import device as torch_device, tensor, no_grad, Tensor, randperm, cat, save, float32 as torch_float32
 from torch.cuda import is_available as cuda_is_available
 from torch.nn import Module, CrossEntropyLoss
 from torch.nn.parameter import Parameter
@@ -95,7 +95,7 @@ class PainTCNBiLSTMAttnTrainer:
         model.p_drop_summ = 1.0  # always drop summary during warm-up
 
         # build optimizer on current trainable params
-        criterion = CBFocalLoss(y_train, beta=0.999, gamma=2.0, alpha=tensor(base_w, device=self._device))
+        criterion = CBFocalLoss(y_train, beta=0.999, gamma=2.0, alpha=tensor(base_w, dtype=torch_float32, device=self._device))
         optimizer = AdamW(self._build_param_groups(model), lr=1e-3)
         scheduler = ReduceLROnPlateau(
             optimizer, # optimizer
