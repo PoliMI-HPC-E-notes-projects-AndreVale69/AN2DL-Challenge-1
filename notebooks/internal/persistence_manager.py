@@ -1,5 +1,5 @@
 """
-Utility functions for persisting datasets and scalers using joblib.
+Utility class for persisting datasets and scalers using joblib.
 """
 import os
 from typing import Literal, Union

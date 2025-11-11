@@ -4,9 +4,11 @@ Data types for storing datasets and related information for pain intensity class
 from dataclasses import dataclass
 from typing import Union
 
-import numpy as np
-import pandas as pd
+from numpy import ndarray
+from pandas import DataFrame
 from sklearn.preprocessing import StandardScaler
+from torch import from_numpy, Tensor
+from torch.utils.data import Dataset
 
 
 @dataclass
@@ -46,10 +48,10 @@ class DataSet:
 
     Attributes:
         X_dyn_train (np.ndarray): Dynamic features for training.
-        X_sta_train (pd.DataFrame): Static features for training.
+        X_sta_train (pd.ndarray): Static features for training.
         y_train (np.ndarray): Labels for training.
         X_dyn_val (np.ndarray): Dynamic features for validation.
-        X_sta_val (pd.DataFrame): Static features for validation.
+        X_sta_val (pd.ndarray): Static features for validation.
         y_val (np.ndarray): Labels for validation.
         X_dyn_test (np.ndarray): Dynamic features for testing.
         X_sta_test (np.ndarray): Static features for testing.
@@ -59,15 +61,15 @@ class DataSet:
         scaler_sta (StandardScaler): Scaler for static features.
         label_map (LabelMap): Mapping of pain intensity levels to integer labels.
     """
-    X_dyn_train: np.ndarray
-    X_sta_train: pd.DataFrame
-    y_train: np.ndarray
-    X_dyn_val: np.ndarray
-    X_sta_val: pd.DataFrame
-    y_val: np.ndarray
-    X_dyn_test: np.ndarray
-    X_sta_test: np.ndarray
-    ids_test: np.ndarray
+    X_dyn_train: ndarray
+    X_sta_train: ndarray
+    y_train: ndarray
+    X_dyn_val: ndarray
+    X_sta_val: ndarray
+    y_val: ndarray
+    X_dyn_test: ndarray
+    X_sta_test: ndarray
+    ids_test: ndarray
     class_weights: dict[int, float]
     scaler_dyn: StandardScaler
     scaler_sta: StandardScaler
@@ -125,16 +127,61 @@ class DataSetV2(DataSet):
         scaler_dyn_summ (StandardScaler): Scaler for sequence-level summary statistics.
         feat_eng (FeatureEngineeringConfig | dict): Feature engineering configuration.
     """
-    X_dyn_num_train: np.ndarray
-    X_dyn_num_val: np.ndarray
-    X_dyn_num_test: np.ndarray
-    X_surv_train: list[np.ndarray]
-    X_surv_val: list[np.ndarray]
-    X_surv_test: list[np.ndarray]
+    X_dyn_num_train: ndarray
+    X_dyn_num_val: ndarray
+    X_dyn_num_test: ndarray
+    X_surv_train: list[ndarray]
+    X_surv_val: list[ndarray]
+    X_surv_test: list[ndarray]
     # Sequence-level summaries statistics (mean, std, min, max, etc.)
-    X_dyn_summ_train: np.ndarray
-    X_dyn_summ_val: np.ndarray
-    X_dyn_summ_test: np.ndarray
+    X_dyn_summ_train: ndarray
+    X_dyn_summ_val: ndarray
+    X_dyn_summ_test: ndarray
     scaler_dyn_summ: StandardScaler
     # feature engineering configuration
     feat_eng: Union[FeatureEngineeringConfig, dict[str, bool | int]]
+
+class PainDataset(Dataset):
+    """
+    PyTorch Dataset for pain intensity classification.
+
+    It handles dynamic numerical features, survival analysis features, static features,
+    sequence-level summary statistics, and optional labels.
+
+    It is designed to be compatible with PyTorch's DataLoader for efficient batching and shuffling.
+    """
+    def __init__(
+            self,
+            x_dyn_num: ndarray,
+            x_surv: list[ndarray],
+            x_sta: ndarray,
+            x_summ: ndarray,
+            y: ndarray | None = None,
+    ):
+        """
+        PyTorch Dataset for pain intensity classification.
+        :param x_dyn_num: The dynamic numerical features.
+        :param x_surv: The survival analysis features.
+        :param x_sta: The static features.
+        :param x_summ: The sequence-level summary statistics.
+        :param y: The labels (optional).
+        """
+        self.X_dyn_num: Tensor      = from_numpy(x_dyn_num).float()
+        self.X_sta: Tensor          = from_numpy(x_sta).float()
+        self.X_surv: list[Tensor]   = [from_numpy(s).long() for s in x_surv]
+        self.x_summ: Tensor         = from_numpy(x_summ).float()
+        self.y: Tensor | None       = from_numpy(y).long() if y is not None else None
+
+    def __len__(self) -> int:
+        return self.X_dyn_num.shape[0]
+
+    def __getitem__(self, idx: int) -> dict[str, Tensor]:
+        item = {
+            'x_num':  self.X_dyn_num[idx],
+            'x_surv': [s[idx] for s in self.X_surv],
+            'x_sta':  self.X_sta[idx],
+            'x_summ': self.x_summ[idx],
+        }
+        if self.y is not None:
+            item['y'] = self.y[idx]
+        return item
