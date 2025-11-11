@@ -5,76 +5,15 @@ from dataclasses import dataclass
 from typing import Union
 
 from numpy import ndarray
-from pandas import DataFrame
 from sklearn.preprocessing import StandardScaler
 from torch import from_numpy, Tensor
 from torch.utils.data import Dataset
 
 
-@dataclass
-class LabelMap(dict[str, int]):
+class DictLike:
     """
-    Mapping of pain intensity levels to integer labels.
-
-    Attributes:
-        no_pain (int): Label for no pain.
-        low_pain (int): Label for low pain.
-        high_pain (int): Label for high pain.
+    A base class that mimics dictionary behavior for dataclasses.
     """
-    no_pain: int
-    low_pain: int
-    high_pain: int
-
-@dataclass
-class FeatureEngineeringConfig:
-    """
-    Configuration for feature engineering options.
-
-    Attributes:
-        delta (bool): Whether to compute delta features.
-        rolling_std (bool): Whether to compute rolling standard deviation features.
-        seq_summaries (bool): Whether to compute sequence-level summary statistics.
-        window (int): Window size for rolling calculations.
-    """
-    delta: bool
-    rolling_std: bool
-    seq_summaries: bool
-    window: int
-
-@dataclass
-class DataSet:
-    """
-    Data structure for storing training, validation, and test datasets along with scalers and label mappings.
-
-    Attributes:
-        X_dyn_train (np.ndarray): Dynamic features for training.
-        X_sta_train (pd.ndarray): Static features for training.
-        y_train (np.ndarray): Labels for training.
-        X_dyn_val (np.ndarray): Dynamic features for validation.
-        X_sta_val (pd.ndarray): Static features for validation.
-        y_val (np.ndarray): Labels for validation.
-        X_dyn_test (np.ndarray): Dynamic features for testing.
-        X_sta_test (np.ndarray): Static features for testing.
-        ids_test (np.ndarray): Identifiers for test samples.
-        class_weights (dict[int, float]): Class weights for handling class imbalance.
-        scaler_dyn (StandardScaler): Scaler for dynamic features.
-        scaler_sta (StandardScaler): Scaler for static features.
-        label_map (LabelMap): Mapping of pain intensity levels to integer labels.
-    """
-    X_dyn_train: ndarray
-    X_sta_train: ndarray
-    y_train: ndarray
-    X_dyn_val: ndarray
-    X_sta_val: ndarray
-    y_val: ndarray
-    X_dyn_test: ndarray
-    X_sta_test: ndarray
-    ids_test: ndarray
-    class_weights: dict[int, float]
-    scaler_dyn: StandardScaler
-    scaler_sta: StandardScaler
-    label_map: Union[LabelMap, dict[str, int]]
-
     def to_dict(self) -> dict:
         from dataclasses import asdict
         return asdict(self)
@@ -109,6 +48,70 @@ class DataSet:
         return NotImplemented
 
 @dataclass
+class LabelMap(DictLike):
+    """
+    Mapping of pain intensity levels to integer labels.
+
+    Attributes:
+        no_pain (int): Label for no pain.
+        low_pain (int): Label for low pain.
+        high_pain (int): Label for high pain.
+    """
+    no_pain: int
+    low_pain: int
+    high_pain: int
+
+@dataclass
+class FeatureEngineeringConfig(DictLike):
+    """
+    Configuration for feature engineering options.
+
+    Attributes:
+        delta (bool): Whether to compute delta features.
+        rolling_std (bool): Whether to compute rolling standard deviation features.
+        seq_summaries (bool): Whether to compute sequence-level summary statistics.
+        window (int): Window size for rolling calculations.
+    """
+    delta: bool
+    rolling_std: bool
+    seq_summaries: bool
+    window: int
+
+@dataclass
+class DataSet(DictLike):
+    """
+    Data structure for storing training, validation, and test datasets along with scalers and label mappings.
+
+    Attributes:
+        X_dyn_train (np.ndarray): Dynamic features for training.
+        X_sta_train (pd.ndarray): Static features for training.
+        y_train (np.ndarray): Labels for training.
+        X_dyn_val (np.ndarray): Dynamic features for validation.
+        X_sta_val (pd.ndarray): Static features for validation.
+        y_val (np.ndarray): Labels for validation.
+        X_dyn_test (np.ndarray): Dynamic features for testing.
+        X_sta_test (np.ndarray): Static features for testing.
+        ids_test (np.ndarray): Identifiers for test samples.
+        class_weights (dict[int, float]): Class weights for handling class imbalance.
+        scaler_dyn (StandardScaler): Scaler for dynamic features.
+        scaler_sta (StandardScaler): Scaler for static features.
+        label_map (LabelMap): Mapping of pain intensity levels to integer labels.
+    """
+    X_dyn_train: ndarray
+    X_sta_train: ndarray
+    y_train: ndarray
+    X_dyn_val: ndarray
+    X_sta_val: ndarray
+    y_val: ndarray
+    X_dyn_test: ndarray
+    X_sta_test: ndarray
+    ids_test: ndarray
+    class_weights: dict[int, float]
+    scaler_dyn: StandardScaler
+    scaler_sta: StandardScaler
+    label_map: Union[LabelMap, dict[str, int]]
+
+@dataclass
 class DataSetV2(DataSet):
     """
     Extended data structure for storing numerical dynamic features and feature engineering configuration.
@@ -140,6 +143,11 @@ class DataSetV2(DataSet):
     scaler_dyn_summ: StandardScaler
     # feature engineering configuration
     feat_eng: Union[FeatureEngineeringConfig, dict[str, bool | int]]
+
+    def __post_init__(self):
+        # Ensure that feat_eng is an instance of FeatureEngineeringConfig
+        if isinstance(self.feat_eng, dict):
+            self.feat_eng = FeatureEngineeringConfig(**self.feat_eng)
 
 class PainDataset(Dataset):
     """
