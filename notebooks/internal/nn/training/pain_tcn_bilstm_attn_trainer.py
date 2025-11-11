@@ -336,7 +336,8 @@ class PainTCNBiLSTMAttnTrainer:
             'x_num': mix(batch['x_num']),
             'x_sta': mix(batch['x_sta']),
             'x_summ': mix(batch['x_summ']),
-            'x_surv': [mix(s.float()).long() for s in batch['x_surv']]
+            # CATEGORICAL: DO NOT MIX - pick from a or b
+            'x_surv': [a if lam >= 0.5 else a[idx] for a in batch['x_surv']]
             # if embeddings expect long, skip mix on surveys
         }
         y_a, y_b = batch['y'], batch['y'][idx]
