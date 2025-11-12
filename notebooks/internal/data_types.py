@@ -91,6 +91,9 @@ class DataSet(DictLike):
         y_val (np.ndarray): Labels for validation.
         X_dyn_test (np.ndarray): Dynamic features for testing.
         X_sta_test (np.ndarray): Static features for testing.
+        pid_tr_seq (np.ndarray): Patient IDs for training sequences.
+        pid_train (np.ndarray): Identifiers for training samples.
+        pid_val (np.ndarray): Identifiers for validation samples.
         ids_test (np.ndarray): Identifiers for test samples.
         class_weights (dict[int, float]): Class weights for handling class imbalance.
         scaler_dyn (StandardScaler): Scaler for dynamic features.
@@ -105,6 +108,9 @@ class DataSet(DictLike):
     y_val: ndarray
     X_dyn_test: ndarray
     X_sta_test: ndarray
+    pid_tr_seq: ndarray
+    pid_train: ndarray
+    pid_val: ndarray
     ids_test: ndarray
     class_weights: dict[int, float]
     scaler_dyn: StandardScaler
