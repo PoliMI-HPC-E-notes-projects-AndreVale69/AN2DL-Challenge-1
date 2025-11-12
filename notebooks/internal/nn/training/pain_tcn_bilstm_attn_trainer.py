@@ -174,11 +174,13 @@ class PainTCNBiLSTMAttnTrainer:
                     key: (val.to(self._device) if not isinstance(val, list) else [t.to(self._device) for t in val])
                     for key, val in batch.items()
                 }
-                mixed, ya, yb, lam = self._mixup_batch(batch, alpha=0.2)
-
-                logits = model(mixed['x_num'], mixed['x_surv'], mixed['x_sta'], mixed['x_summ'])
-                ce = lam * criterion(logits, ya) + (1 - lam) * criterion(logits, yb)  # cross-entropy loss with mixup
-
+                mixed, ya, yb, lam = self._mixup_batch_embed(batch, model, alpha=0.2)
+                # forward pass on mixed batch
+                logits = model.forward_with_surv_embs(
+                    mixed['x_num'], mixed['x_surv_embs'], mixed['x_sta'], mixed['x_summ']
+                )
+                # mixup loss
+                ce = lam * criterion(logits, ya) + (1 - lam) * criterion(logits, yb)
                 # --- L1 regularization on summary MLP weights ---
                 l1 = 0.0
                 # first Linear in summ_mlp;
@@ -342,6 +344,45 @@ class PainTCNBiLSTMAttnTrainer:
         }
         y_a, y_b = batch['y'], batch['y'][idx]
         return mixed, y_a, y_b, lam
+
+    @staticmethod
+    def _mixup_batch_embed(batch: dict, model: PainTCNBiLSTMAttn, alpha: float = 0.2):
+        """
+        Apply mixup augmentation to a batch, mixing survey embeddings.
+
+        This method extends the standard mixup technique by mixing the embeddings of categorical survey inputs
+        instead of the raw categorical data. This approach maintains the semantic integrity of the survey data
+        while still benefiting from the regularization effects of mixup.
+        :param batch: Batch dictionary containing input tensors and labels.
+        :param model: The PainTCNBiLSTMAttn model containing survey embedding layers.
+        :param alpha: Parameter for the Beta distribution to sample the mixing coefficient.
+        :return: Tuple containing the mixed batch with survey embeddings, original labels, permuted labels, and mixing coefficient.
+        1. mixed batch with survey embeddings: Dictionary with mixed input tensors and mixed survey embeddings.
+        2. original labels: Tensor of original labels before mixing.
+        3. permuted labels: Tensor of labels corresponding to the mixed inputs.
+        4. mixing coefficient: Float value used for mixing the inputs and labels.
+        """
+        lam = beta(alpha, alpha) if alpha > 0 else 1.0
+        b = batch['x_num'].size(0)
+        idx = randperm(b, device=batch['x_num'].device)
+
+        def mix_cont(a: Tensor) -> Tensor:
+            return lam * a + (1 - lam) * a[idx]
+
+        # 1) continuous
+        x_num  = mix_cont(batch['x_num'])
+        x_sta  = mix_cont(batch['x_sta'])
+        x_summ = mix_cont(batch['x_summ'])
+
+        # 2) embed surveys, then mix embeddings (keeps semantics; gradients flow)
+        #    Each s has shape (B,T) with int levels {0,1,2}
+        surv_embs_a = [emb(s)           for emb, s in zip(model.survey_embs, batch['x_surv'])]
+        surv_embs_b = [emb(s[idx])      for emb, s in zip(model.survey_embs, batch['x_surv'])]
+        surv_embs   = [lam * ea + (1 - lam) * eb for ea, eb in zip(surv_embs_a, surv_embs_b)]  # each (B,T,d_emb)
+
+        y_a, y_b = batch['y'], batch['y'][idx]
+        mixed = {'x_num': x_num, 'x_sta': x_sta, 'x_summ': x_summ, 'x_surv_embs': surv_embs}
+        return mixed, y_a, y_b, float(lam)
 
     def _fit_temperature_on_val(self, model: PainTCNBiLSTMAttn, val_loader: DataLoader, ema: EMA | None = None, init_t: float = 1.0):
         """

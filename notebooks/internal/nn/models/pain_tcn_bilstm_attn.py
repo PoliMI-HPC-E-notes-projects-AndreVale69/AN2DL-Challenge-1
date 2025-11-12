@@ -381,3 +381,36 @@ class PainTCNBiLSTMAttn(Module):
         z = cat([dyn_vec, sta_vec, summ_vec], dim=-1)
         # 12. Output logits, pass through head; shape ~> (B, num_classes)
         return self.head(z)
+
+    def forward_with_surv_embs(self, x_num: Tensor, surv_embs: list[Tensor], x_sta: Tensor, x_summ: Tensor) -> Tensor:
+        """
+        Forward pass of the PainTCNBiLSTMAttn model with pre-computed survey embeddings.
+
+        This method is similar to the standard forward pass but assumes that the survey embeddings
+        have already been computed and are provided as input. This can be useful for scenarios
+        where the survey embeddings are pre-processed or cached.
+        :param x_num: Tensor of shape (B, T, d_num) representing numerical time-series data.
+        :param surv_embs: List of 4 Tensors, each of shape (B, T, d_emb), representing pre-computed survey embeddings.
+        :param x_sta: Tensor of shape (B, d_sta) representing static features.
+        :param x_summ: Tensor of shape (B, d_summ) representing summary features.
+        :return: Tensor of shape (B, num_classes) representing the logits for each class.
+        """
+        # surv_embs: list of 4 tensors, each (B, T, d_emb)
+        x = cat([x_num, *surv_embs], dim=-1)     # (B,T,d_num+4*d_emb)
+        x = self.proj(x)                         # (B,T,C)
+        x = x.transpose(1, 2)                    # (B,C,T)
+        x = self.tcn(x)
+        x = self.se(x)
+        x = x.transpose(1, 2)                    # (B,T,C)
+        x, _ = self.lstm(x)                      # (B,T,2H)
+        dyn_vec = self.attn(x)                   # (B,2H)
+        sta_vec = self.static_mlp(x_sta)         # (B,64)
+        summ_vec = self.summ_mlp(x_summ)         # (B,summ_out)
+
+        if self.training and rand(1, device=summ_vec.device) < self.p_drop_summ:
+            summ_vec = zeros_like(summ_vec)
+
+        gate = sigmoid(self.gate_fc(cat([sta_vec, summ_vec], dim=-1)))  # (B,2H)
+        dyn_vec = dyn_vec * gate
+        z = cat([dyn_vec, sta_vec, summ_vec], dim=-1)
+        return self.head(z)
