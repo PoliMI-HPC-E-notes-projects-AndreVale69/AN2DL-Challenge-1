@@ -4,7 +4,7 @@ Trainer for the PainTCNBiLSTMAttn model.
 import json
 from itertools import product
 
-from numpy import array, float32 as numpy_float32, concatenate, round as np_round, linspace, zeros
+from numpy import array, float32 as numpy_float32, concatenate, round as np_round, linspace, zeros, clip, log, isclose
 from numpy import ndarray
 from numpy.random import beta
 from sklearn.metrics import f1_score, recall_score, confusion_matrix
@@ -21,6 +21,33 @@ from torch.utils.data import DataLoader
 from internal.nn.blocks.class_balanced_focal_loss import CBFocalLoss
 from internal.nn.models.pain_tcn_bilstm_attn import PainTCNBiLSTMAttn
 from internal.nn.smoothing.ema import EMA
+
+
+class TrainOneFoldResult:
+    """
+    Result of training one fold of the PainTCNBiLSTMAttn model.
+    """
+    def __init__(
+            self,
+            model: PainTCNBiLSTMAttn,
+            final_macro_f1: float,
+            best_logit_bias: ndarray,
+            temperature: float,
+            best_tau: float
+    ):
+        self.model: PainTCNBiLSTMAttn = model
+        self.final_macro_f1: float = final_macro_f1
+        self.best_logit_bias: ndarray = best_logit_bias
+        self.temperature: float = temperature
+        self.best_tau: float = best_tau
+
+    # handle unpacking i.e., a, b, c, d = result
+    def __iter__(self):
+        yield self.model
+        yield self.final_macro_f1
+        yield self.best_logit_bias
+        yield self.temperature
+        yield self.best_tau
 
 
 class PainTCNBiLSTMAttnTrainer:
@@ -68,8 +95,9 @@ class PainTCNBiLSTMAttnTrainer:
             val_loader: DataLoader,
             y_train: ndarray,
             y_val: ndarray,
+            priors: ndarray,
             class_multipliers: dict[int, float]
-    ) -> tuple[PainTCNBiLSTMAttn, float, ndarray, float]:
+    ) -> TrainOneFoldResult:
         """
         Train the model for one fold of cross-validation.
 
@@ -81,6 +109,7 @@ class PainTCNBiLSTMAttnTrainer:
         :param val_loader: Validation data loader.
         :param y_train: The training labels.
         :param y_val: The validation labels.
+        :param priors: Array of class prior probabilities. For example, priors[c] = P(y=c).
         :param class_multipliers: Dictionary of class multipliers for class weighting.
         :return: Tuple containing the trained model, final macro F1 score, best logit bias, and learned temperature.
         Where the best logit bias indicates the optimal bias added to logits for each class to maximize macro F1 score on validation data.
@@ -225,9 +254,33 @@ class PainTCNBiLSTMAttnTrainer:
 
         t_fold = self._fit_temperature_on_val(model, val_loader, ema)
         print(f"[F{k}] Learned temperature T = {t_fold:.3f}")
-        best_b, f1_biased = self._search_logit_bias(model, val_loader, y_val)
-        print("Best logit bias:", best_b, "biased macro-F1:", f1_biased)
-        final_f1, final_rec, final_cm = self._evaluate_metrics(model, val_loader)
+
+        # --- search logit bias on val set + bias evaluation ---
+        # calibration with both tau and bias
+        best_tau, best_b, f1_adj = self._search_tau_and_bias(model, val_loader, y_val, t_fold, priors)
+        print(f"[F{k}] tau={best_tau:.3f} | best bias={best_b} | F1_adj={f1_adj}")
+
+        # raw metrics with no temp scaling or bias
+        raw_f1, raw_rec, raw_cm = self._evaluate_metrics(model, val_loader)
+        print(f"[F{k}] RAW macroF={raw_f1}")
+
+        # --- final metrics under calibration (temp scaling + logit bias) ---
+        # collect logits once
+        logits_val = self._infer_logits_only(model, val_loader)  # (N,3)
+
+        logits_cal: ndarray = logits_val / float(t_fold)  # temp scaling
+        log_p = log(clip(priors, 1e-8, 1.0)).astype(numpy_float32) # log priors
+        logits_cal = logits_cal + best_tau * log_p[None, :]
+        logits_cal = logits_cal + best_b[None, :]
+
+        y_pred = logits_cal.argmax(1)
+
+        final_f1 = f1_score(y_val, y_pred, average='macro', labels=self._classes.copy())
+        final_rec = recall_score(y_val, y_pred, average=None, labels=self._classes.copy())
+        final_cm = confusion_matrix(y_val, y_pred, labels=self._classes.copy())
+
+        print(f"[F{k}] FINAL (calibrated) macroF={final_f1}")
+
         save(best_state, f'artifacts/fold{k}_best_K_{class_multipliers.get(2, 1)}mul.pt')
         try:
             json.dump({
@@ -239,7 +292,10 @@ class PainTCNBiLSTMAttnTrainer:
         except Exception as e:
             print("Could not save metrics json:", e)
         print(f"[F{k}] BEST macroF={final_f1:.4f}  saved=artifacts/fold{k}_best_K_{class_multipliers.get(2, 1)}mul.pt")
-        return model, final_f1, best_b, t_fold
+        return TrainOneFoldResult(
+            model=model, final_macro_f1=final_f1, best_logit_bias=best_b,
+            temperature=t_fold, best_tau=best_tau
+        )
 
     def _get_data_from_batch(self, batch: dict) -> tuple[Tensor, Tensor, list[Tensor], Tensor, Tensor]:
         """
@@ -424,6 +480,88 @@ class PainTCNBiLSTMAttnTrainer:
 
         opt.step(closure)
         return float(t.detach().clamp_min(1e-3).cpu())
+
+    def _search_tau_and_bias(
+            self,
+            model: PainTCNBiLSTMAttn,
+            val_loader: DataLoader,
+            y_val: ndarray,
+            t: float,
+            priors: ndarray
+    ) -> tuple[float, ndarray, float]:
+        """
+        Search for the best tau and logit bias to maximize macro F1 score on validation data.
+
+        This method performs a grid search over a range of tau values and logit biases to find the combination
+        that maximizes the macro F1 score on the validation dataset. The tau parameter adjusts the influence
+        of class priors on the logits, while the logit biases shift the decision boundaries for each class.
+
+        References:
+        - Menon et al., "Long-Tailed Classification via Logit Adjustment", NeurIPS 2020. This paper introduces
+          the concept of logit adjustment using class priors to address class imbalance in classification tasks.
+        :param model: The trained classification model.
+        :param val_loader: DataLoader for the validation dataset.
+        :param y_val: The true labels for the validation dataset.
+        :param t: The temperature parameter for scaling logits.
+        :param priors: Array of class prior probabilities.
+        :return: Tuple containing the best tau, best logit bias array, and the corresponding macro F1 score.
+        1. best tau: A float value representing the optimal tau parameter.
+        2. best logit bias: An ndarray of shape (3,) representing the optimal bias for each class.
+        3. corresponding macro F1 score: A float value indicating the highest macro F1 score achieved with the best tau and bias.
+        """
+        logits = self._infer_logits_only(model, val_loader)  # (N,3)
+        logits = logits / float(t)
+
+        log_p = log(clip(priors, 1e-8, 1.0)).astype(numpy_float32)
+        """
+        Logit adjustment using class priors as per Menon et al. (NeurIPS 2020).
+        The adjustment modifies the logits based on the class prior probabilities to address class imbalance.
+        The formula used is:
+            adjusted_logit_c = logit_c + tau * log(p_c)
+        where:
+            - adjusted_logit_c: The adjusted logit for class c.
+            - logit_c: The original logit for class c.
+            - tau: A scaling parameter that controls the influence of the class prior.
+            - p_c: The prior probability of class c.
+        
+        This adjustment helps the model to be more sensitive to underrepresented classes by effectively
+        shifting the decision boundaries in favor of those classes.
+        """
+
+        tau_grid = linspace(-2.0, 2.0, 17)  # step 0.25
+        b_grid = linspace(-0.6, 0.6, 13)    # step 0.1
+
+        best_f1 = -1
+        best_tau = 0.0
+        best_b = zeros(3, dtype=numpy_float32)
+
+        # coordinate descent version: fast and stable
+        for tau in tau_grid:
+            adj = logits + tau * log_p[None, :]  # shape (N,3)
+
+            b = zeros(3, dtype=numpy_float32)
+            improved = True
+            while improved:
+                improved = False
+                for c in range(3):
+                    best_local = (-1, 0.0)
+                    for bc in b_grid:
+                        b_try = b.copy()
+                        b_try[c] = bc
+                        pred = (adj + b_try[None, :]).argmax(1)
+                        f1 = f1_score(y_val, pred, average='macro')
+                        if f1 > best_local[0]:
+                            best_local = (f1, bc)
+                    if best_local[0] > -1 and not isclose(best_local[1], b[c]):
+                        b[c] = best_local[1]
+                        improved = True
+
+            pred = (adj + b[None, :]).argmax(1)
+            f1 = f1_score(y_val, pred, average='macro')
+            if f1 > best_f1:
+                best_f1, best_tau, best_b = f1, tau, b.copy()
+
+        return best_tau, best_b, best_f1
 
     def _search_logit_bias(self, model: PainTCNBiLSTMAttn, val_loader: DataLoader, y_val: ndarray) -> tuple[ndarray, float]:
         """
