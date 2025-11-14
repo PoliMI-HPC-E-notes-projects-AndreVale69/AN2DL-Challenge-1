@@ -9,13 +9,16 @@ import requests
 def send_message(
         markdown_message: str,
         raise_on_failure: bool = True
-) -> dict:
+) -> bool:
     """
     Send a message to a Telegram chat using a bot.
 
     Args:
         markdown_message (str): The message to send.
         raise_on_failure (bool): Whether to raise an exception on failure.
+
+    Returns:
+        bool: True if the message was sent successfully, False otherwise.
     """
     bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
     chat_id = os.getenv("TELEGRAM_CHAT_ID")
@@ -23,7 +26,7 @@ def send_message(
     if not bot_token or not chat_id:
         if raise_on_failure:
             raise ValueError("TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set in environment variables.")
-        return {}
+        return False
 
     url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
     payload = {
@@ -35,15 +38,15 @@ def send_message(
     if response.status_code != 200:
         if raise_on_failure:
             raise Exception(f"Failed to send message: {response.text}")
-        return {}
+        return False
 
-    return response.json()
+    return True
 
 def send_file(
         file_path: str,
         caption: str,
         raise_on_failure: bool = True
-) -> dict:
+) -> bool:
     """
     Send a file to a Telegram chat using a bot.
 
@@ -51,6 +54,9 @@ def send_file(
         caption (str): The caption message to send with the file.
         file_path (str): The path to the file to send.
         raise_on_failure (bool): Whether to raise an exception on failure.
+
+    Returns:
+        bool: True if the file was sent successfully, False otherwise.
     """
     bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
     chat_id = os.getenv("TELEGRAM_CHAT_ID")
@@ -58,7 +64,7 @@ def send_file(
     if not bot_token or not chat_id:
         if raise_on_failure:
             raise ValueError("TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set in environment variables.")
-        return {}
+        return False
 
     url = f"https://api.telegram.org/bot{bot_token}/sendDocument"
     with open(file_path, "rb") as file:
@@ -73,15 +79,15 @@ def send_file(
     if response.status_code != 200:
         if raise_on_failure:
             raise Exception(f"Failed to send file: {response.text}")
-        return {}
+        return False
 
-    return response.json()
+    return response.status_code == 200
 
 def send_files(
         file_paths: list[str],
         caption: str,
         raise_on_failure: bool = True
-) -> dict:
+) -> bool:
     """
     Send multiple files to a Telegram chat using a bot.
 
@@ -89,6 +95,9 @@ def send_files(
         caption (str): The caption message to send with the files.
         file_paths (list[str]): A list of paths to the files to send.
         raise_on_failure (bool): Whether to raise an exception on failure.
+
+    Returns:
+        bool: True if files were sent successfully, False otherwise.
     """
     bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
     chat_id = os.getenv("TELEGRAM_CHAT_ID")
@@ -96,7 +105,7 @@ def send_files(
     if not bot_token or not chat_id:
         if raise_on_failure:
             raise ValueError("TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set in environment variables.")
-        return {}
+        return False
 
     url = f"https://api.telegram.org/bot{bot_token}/sendMediaGroup"
     media = []
@@ -124,6 +133,6 @@ def send_files(
     if response.status_code != 200:
         if raise_on_failure:
             raise Exception(f"Failed to send files: {response.text}")
-        return {}
+        return False
 
-    return response.json()
+    return True
