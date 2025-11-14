@@ -2,6 +2,7 @@
 Trainer for the PainTCNBiLSTMAttn model.
 """
 import json
+import time
 from itertools import product
 
 from numpy import array, float32 as numpy_float32, concatenate, round as np_round, linspace, zeros, clip, log, isclose
@@ -285,7 +286,8 @@ class PainTCNBiLSTMAttnTrainer:
 
         print(f"[F{k}] FINAL (calibrated) macroF={final_f1}")
 
-        save(best_state, f'artifacts/fold{k}_best_K_{class_multipliers.get(2, 1)}mul.pt')
+        timenow = time.strftime("%Y%m%d-%H%M%S")
+        save(best_state, f'artifacts/fold{k}_best_K_{class_multipliers.get(2, 1)}_{timenow}.pt')
         try:
             json.dump({
                 'macroF': final_f1,
@@ -295,7 +297,7 @@ class PainTCNBiLSTMAttnTrainer:
             }, open(f'artifacts/fold{k}_metrics_{class_multipliers.get(2, 1)}mul.json', 'w'), indent=4)
         except Exception as e:
             print("Could not save metrics json:", e)
-        print(f"[F{k}] BEST macroF={final_f1:.4f}  saved=artifacts/fold{k}_best_K_{class_multipliers.get(2, 1)}mul.pt")
+        print(f"[F{k}] BEST macroF={final_f1:.4f}  saved=artifacts/fold{k}_best_K_{class_multipliers.get(2, 1)}_{timenow}.pt")
         return TrainOneFoldResult(
             model=model, final_macro_f1=final_f1, best_logit_bias=best_b,
             temperature=t_fold, best_tau=best_tau
