@@ -117,7 +117,11 @@ class PainTCNBiLSTMAttnTrainer:
         """
         # ----- per-fold class weights (with class-2 boost) -----
         base_w = compute_class_weight('balanced', classes=array(self._classes.copy()), y=y_train).astype(numpy_float32)
-        base_w[2] *= class_multipliers.get(2, 1.0)  # boost class 2 if specified
+        # for each class in classes, multiply by given multiplier
+        for c in self._classes:
+            base_w[c] *= class_multipliers.get(c, 1.0)
+        # finally normalize to mean 1.0
+        base_w = base_w / base_w.mean()
 
         # --- WARM-UP: freeze summary branch and/or hard-mask it ---
         self._set_requires_grad(model.summ_mlp, False)
