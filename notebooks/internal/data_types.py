@@ -1,7 +1,7 @@
 """
 Data types for storing datasets and related information for pain intensity classification.
 """
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 from typing import Union
 
 from numpy import ndarray
@@ -10,12 +10,12 @@ from torch import from_numpy, Tensor
 from torch.utils.data import Dataset
 
 
+@dataclass
 class DictLike:
     """
     A base class that mimics dictionary behavior for dataclasses.
     """
     def to_dict(self) -> dict:
-        from dataclasses import asdict
         return asdict(self)
 
     def keys(self):
@@ -130,7 +130,7 @@ class DataSetV2(DataSet):
         X_surv_train (list[np.ndarray]): List of survival analysis features for training.
         X_surv_val (list[np.ndarray]): List of survival analysis features for validation.
         X_surv_test (list[np.ndarray]): List of survival analysis features for testing.
-        x_dyn_summ_train (np.ndarray): Sequence-level summary statistics for training.
+        X_dyn_summ_train (np.ndarray): Sequence-level summary statistics for training.
         X_dyn_summ_val (np.ndarray): Sequence-level summary statistics for validation.
         X_dyn_summ_test (np.ndarray): Sequence-level summary statistics for testing.
         scaler_dyn_summ (StandardScaler): Scaler for sequence-level summary statistics.
