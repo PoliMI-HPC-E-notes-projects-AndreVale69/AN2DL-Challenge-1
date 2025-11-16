@@ -1,0 +1,2306 @@
+[
+    {
+        "multiplier": 1,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8755705123741568,
+        "std_f1": 0.04883284248105826
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8748656213441217,
+        "std_f1": 0.044979708565573324
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8732535312968931,
+        "std_f1": 0.04790379662124252
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8726384522700774,
+        "std_f1": 0.05184780792229883
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8713203981420381,
+        "std_f1": 0.03561708952589385
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8710971198824291,
+        "std_f1": 0.049142184951137854
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8708498667285426,
+        "std_f1": 0.04160986025002864
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8707161138648427,
+        "std_f1": 0.05173265806552504
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8700814173332244,
+        "std_f1": 0.07322709879715025
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8687026799218879,
+        "std_f1": 0.05027936281143286
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8685561157171439,
+        "std_f1": 0.02917723598100895
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8684775994949054,
+        "std_f1": 0.0600661062595094
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8683388033321003,
+        "std_f1": 0.05516688708405019
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8678160239293431,
+        "std_f1": 0.03701202605348134
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8672602817490006,
+        "std_f1": 0.02793156580292464
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8660115568637885,
+        "std_f1": 0.03984963904443777
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8658720282648608,
+        "std_f1": 0.046144429460313864
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8656690385294254,
+        "std_f1": 0.047036871836445164
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8652490755234352,
+        "std_f1": 0.030990296286908425
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8645200182976627,
+        "std_f1": 0.06853807670558915
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8644797671586002,
+        "std_f1": 0.03126428412415767
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8642792500647065,
+        "std_f1": 0.04077663253070122
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8634717796453171,
+        "std_f1": 0.03385070127872764
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8623477912496048,
+        "std_f1": 0.02658311565838006
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8621731480029947,
+        "std_f1": 0.02758883331765503
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.861335527859198,
+        "std_f1": 0.03699205168643701
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8610568854527768,
+        "std_f1": 0.05092497586328527
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8608626193849359,
+        "std_f1": 0.05361309143034058
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8606850420402159,
+        "std_f1": 0.048544763926210585
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8602283030623754,
+        "std_f1": 0.04462229337677049
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8600231440657963,
+        "std_f1": 0.025606159662451496
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8600147413475202,
+        "std_f1": 0.03620245636724008
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8594026571352161,
+        "std_f1": 0.04112217317504021
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8593096576671325,
+        "std_f1": 0.043857419336454324
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8592313317658735,
+        "std_f1": 0.03949533615788693
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8585575286796896,
+        "std_f1": 0.04944476785833031
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.858547154561084,
+        "std_f1": 0.04158392554271015
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.858336585193953,
+        "std_f1": 0.03304931105064396
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8582878778873502,
+        "std_f1": 0.03950418387054722
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8582726361809586,
+        "std_f1": 0.05370183966902444
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8580695933530993,
+        "std_f1": 0.03388129814549929
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8580062512515273,
+        "std_f1": 0.06273066975786443
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8579898423228732,
+        "std_f1": 0.028367048217133935
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8579022851534388,
+        "std_f1": 0.03706311979604428
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8578344544370186,
+        "std_f1": 0.04792851405050835
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8577497211377796,
+        "std_f1": 0.04878764293402904
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8574608298419271,
+        "std_f1": 0.050572671503240414
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8569690611379572,
+        "std_f1": 0.04727607192451791
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8568578413300463,
+        "std_f1": 0.04151356537348854
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8566522587468995,
+        "std_f1": 0.015664293987502357
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8566469014795259,
+        "std_f1": 0.037156579179814644
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8564097502058574,
+        "std_f1": 0.0551024653601869
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8564090817843736,
+        "std_f1": 0.06318666746281974
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8563335079886236,
+        "std_f1": 0.04014930258478763
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8562360890068283,
+        "std_f1": 0.05184158900106117
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8561367953943068,
+        "std_f1": 0.060721998561034524
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8560435820040352,
+        "std_f1": 0.04269352267452176
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8557749377172403,
+        "std_f1": 0.04563768569577966
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8549745332047094,
+        "std_f1": 0.06740931086064735
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8547938708104995,
+        "std_f1": 0.033400863254080676
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8547460613565873,
+        "std_f1": 0.06306010751658331
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8546489836817889,
+        "std_f1": 0.04253196725364872
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8545444128532121,
+        "std_f1": 0.012504830774931214
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8545126769256338,
+        "std_f1": 0.029596738775437784
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8545077089469089,
+        "std_f1": 0.055561097404564
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8544711772055449,
+        "std_f1": 0.03835316673075021
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8538791322979735,
+        "std_f1": 0.06288894402594562
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8533807085232692,
+        "std_f1": 0.022587947881614265
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8533591849536117,
+        "std_f1": 0.0422071244717779
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8531415681746918,
+        "std_f1": 0.0617268417663875
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8530079118295761,
+        "std_f1": 0.0411557118763232
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8528336411590429,
+        "std_f1": 0.07077701125849786
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8527932823219043,
+        "std_f1": 0.05592052028491647
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8526898012635004,
+        "std_f1": 0.05064788560963367
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8526765485541505,
+        "std_f1": 0.0517567790030071
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8523963921758572,
+        "std_f1": 0.054415033962433905
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8522854419779744,
+        "std_f1": 0.05433251982328337
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8522533137660491,
+        "std_f1": 0.04841096243590919
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.852189298176367,
+        "std_f1": 0.04534463270649774
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8520296209937808,
+        "std_f1": 0.05275377050666859
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8517718402986091,
+        "std_f1": 0.04908784960642607
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8516213279259576,
+        "std_f1": 0.03947603422608784
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.851480766927694,
+        "std_f1": 0.06361839571153499
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8514778071906848,
+        "std_f1": 0.04745496358495654
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8514645168740087,
+        "std_f1": 0.0485732152557561
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.85138577043426,
+        "std_f1": 0.06216255982157669
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8513215492639565,
+        "std_f1": 0.05714600889590654
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8512513441526458,
+        "std_f1": 0.05090121108490459
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8512102465970542,
+        "std_f1": 0.029645291671570765
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8510326437926192,
+        "std_f1": 0.053078717941454294
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8509780464882732,
+        "std_f1": 0.048949622037459624
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8509733370692765,
+        "std_f1": 0.029181036058109865
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8507394816775478,
+        "std_f1": 0.034909319893491796
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.850722977544834,
+        "std_f1": 0.052850907552331856
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8506428779631505,
+        "std_f1": 0.06535323998885711
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8503600373202783,
+        "std_f1": 0.05121629859171722
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8502865262295323,
+        "std_f1": 0.06960972719323404
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8497227410488657,
+        "std_f1": 0.05706580878962852
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8496548249425789,
+        "std_f1": 0.04640482323485264
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8496057176153009,
+        "std_f1": 0.06988080943437135
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8495782314628795,
+        "std_f1": 0.037987857302029596
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8493693651174713,
+        "std_f1": 0.0345360695177492
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8492294803411029,
+        "std_f1": 0.050887063119365666
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8490284059732133,
+        "std_f1": 0.0347768163646913
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8489813479434479,
+        "std_f1": 0.05555811578908336
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8488788715225496,
+        "std_f1": 0.06058557051104721
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.848725593483378,
+        "std_f1": 0.037490461446025525
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.848491158143745,
+        "std_f1": 0.05089113118561264
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8483976290067394,
+        "std_f1": 0.03660126092337042
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8483440901065163,
+        "std_f1": 0.046700579965187186
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.848278854170425,
+        "std_f1": 0.03855990741692284
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8482503596198322,
+        "std_f1": 0.04828012122795166
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.848238279179418,
+        "std_f1": 0.05081705238905849
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8480133214409203,
+        "std_f1": 0.05716410660183457
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8479197023812505,
+        "std_f1": 0.04163122312149355
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8476335151314057,
+        "std_f1": 0.0759317654755
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8467613908789984,
+        "std_f1": 0.04170093392912391
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8467349298394788,
+        "std_f1": 0.03560361420460096
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8462266407509297,
+        "std_f1": 0.04960731760977103
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8461659206401514,
+        "std_f1": 0.05185788617797201
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.845996336324465,
+        "std_f1": 0.05464930886377426
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.845898676517784,
+        "std_f1": 0.040976848057087394
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8458584653467968,
+        "std_f1": 0.04901304917659134
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8457204418880849,
+        "std_f1": 0.024384437845943248
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8456782385602983,
+        "std_f1": 0.025825304265943427
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8455530093196705,
+        "std_f1": 0.05072003356453015
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8454982141934984,
+        "std_f1": 0.056263298121124156
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8453898867182653,
+        "std_f1": 0.04987816962883528
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8453490874052442,
+        "std_f1": 0.06107429541706846
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8450026947005045,
+        "std_f1": 0.05134432143246616
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8449535443996584,
+        "std_f1": 0.07170341517140964
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8448413728480126,
+        "std_f1": 0.050383383373052655
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8446003483137504,
+        "std_f1": 0.05638661665494331
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8442687159791493,
+        "std_f1": 0.05733077321438827
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8442660228889819,
+        "std_f1": 0.03144790870161783
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8442470061506697,
+        "std_f1": 0.04641866962034892
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.844236458530468,
+        "std_f1": 0.046193362727504135
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8436428323628649,
+        "std_f1": 0.02525582167739186
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8435304448561134,
+        "std_f1": 0.05059560949689279
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8432248123134547,
+        "std_f1": 0.061862944098293765
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8431811773188942,
+        "std_f1": 0.046059018843024505
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8430754416588812,
+        "std_f1": 0.03886354693172054
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8430586936042597,
+        "std_f1": 0.04699781913694597
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8429768366838182,
+        "std_f1": 0.054582519788384784
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8427089207097481,
+        "std_f1": 0.06096006377166725
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8426561001447619,
+        "std_f1": 0.06617505770533137
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8425659686764364,
+        "std_f1": 0.06034252530056195
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8424537042931008,
+        "std_f1": 0.043757725799800896
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.842414174088891,
+        "std_f1": 0.04759490722991116
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8422613600072258,
+        "std_f1": 0.05648209726140356
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8422340831960463,
+        "std_f1": 0.027884268929602336
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8422044198514753,
+        "std_f1": 0.029577342722570885
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8420986497759262,
+        "std_f1": 0.03211304238800812
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8419511156834918,
+        "std_f1": 0.07313467131547588
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8416584076338559,
+        "std_f1": 0.043578260081004884
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8416070773789389,
+        "std_f1": 0.03637537131731254
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8415916507878253,
+        "std_f1": 0.05680059189492119
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8414928473813157,
+        "std_f1": 0.0644063297450637
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.841415882667512,
+        "std_f1": 0.024932200538320966
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8413119568422258,
+        "std_f1": 0.0342007204451495
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8410638864156148,
+        "std_f1": 0.0456735372869219
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8408609742483296,
+        "std_f1": 0.06688926092378993
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8408316174638409,
+        "std_f1": 0.06277492904157765
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8408084115588246,
+        "std_f1": 0.05289228999716625
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8406570043724149,
+        "std_f1": 0.05274525106642561
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8405910584497736,
+        "std_f1": 0.05518160833849416
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8405907657618755,
+        "std_f1": 0.047769205189708674
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8405621421045026,
+        "std_f1": 0.05900535646314943
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8404197907252795,
+        "std_f1": 0.0526070200114482
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.840208421949676,
+        "std_f1": 0.06288022418199572
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8400896556425568,
+        "std_f1": 0.04418432362377286
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.83993623824678,
+        "std_f1": 0.053436774796876876
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.839886783145525,
+        "std_f1": 0.07798230570357165
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8396500442786966,
+        "std_f1": 0.05798977958368083
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.839623623720183,
+        "std_f1": 0.058086017187303385
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8395396254708984,
+        "std_f1": 0.05927731943845592
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8395146244161029,
+        "std_f1": 0.06408087503463875
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8390787613888936,
+        "std_f1": 0.04246702194225373
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8390460872139436,
+        "std_f1": 0.04794823548270882
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8390246989415852,
+        "std_f1": 0.03156063113188246
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8387649005949486,
+        "std_f1": 0.04265452900129388
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8387290587856914,
+        "std_f1": 0.05987102637959227
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8385801594056103,
+        "std_f1": 0.05276529188429781
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8383661386342205,
+        "std_f1": 0.048360836289673394
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8379613940250588,
+        "std_f1": 0.062152009724556825
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8378385194016659,
+        "std_f1": 0.024767885724016222
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8377248144071305,
+        "std_f1": 0.06670403122073133
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8376901619251889,
+        "std_f1": 0.04386670859498941
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8376308990636309,
+        "std_f1": 0.04762735228233353
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8376252696664789,
+        "std_f1": 0.07385690407803809
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8376094799324314,
+        "std_f1": 0.055775128081988104
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8372506316937536,
+        "std_f1": 0.048448098687140645
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8371972581894467,
+        "std_f1": 0.0643552320711049
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8369840253092921,
+        "std_f1": 0.04338801258759038
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8369620037093277,
+        "std_f1": 0.0967919484901217
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8367582979177464,
+        "std_f1": 0.04107438903393931
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8365333966394101,
+        "std_f1": 0.06986127257247884
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8364707420181121,
+        "std_f1": 0.03820361020496251
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8361604386120873,
+        "std_f1": 0.04205249491015595
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8361356440290066,
+        "std_f1": 0.0547759592529285
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8359492337308512,
+        "std_f1": 0.059119126696158916
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.835871920826728,
+        "std_f1": 0.04494180973111108
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8357351430874165,
+        "std_f1": 0.07792828600647132
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8355518336138059,
+        "std_f1": 0.06102361677256796
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.835385013191317,
+        "std_f1": 0.017391543217956072
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8353303907879619,
+        "std_f1": 0.03505864081409664
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8349982341765265,
+        "std_f1": 0.056310441918110694
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8348325187077394,
+        "std_f1": 0.054156870519861136
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8348202912701579,
+        "std_f1": 0.06319667025742305
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8347669430587649,
+        "std_f1": 0.04793723252848829
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8346536502653263,
+        "std_f1": 0.057626309282884834
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8343177037813071,
+        "std_f1": 0.06629814817975173
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8342340312868075,
+        "std_f1": 0.08837474069248848
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8341393900432426,
+        "std_f1": 0.052190810131763604
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8339005306657175,
+        "std_f1": 0.060040060070405674
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8338561231641325,
+        "std_f1": 0.045916825091701086
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8337984350170228,
+        "std_f1": 0.0447612366247521
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8337032894676938,
+        "std_f1": 0.05598713080543963
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8333989781475551,
+        "std_f1": 0.08134251200119552
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8331274673180058,
+        "std_f1": 0.05982761872181134
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8327464746872952,
+        "std_f1": 0.04983234224692036
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8326560121027171,
+        "std_f1": 0.056852446442617575
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8322756783811668,
+        "std_f1": 0.049631301712473305
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8320979302992304,
+        "std_f1": 0.0347398988176328
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8318931490243369,
+        "std_f1": 0.07290301807256983
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8317175557780875,
+        "std_f1": 0.07189938623874838
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8316966103720492,
+        "std_f1": 0.03835968823747505
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8315575383350392,
+        "std_f1": 0.05636661165790484
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8311673274569739,
+        "std_f1": 0.0694975149202768
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8302877822611855,
+        "std_f1": 0.05028355044832691
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8302211002222144,
+        "std_f1": 0.043776186207342305
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8295646537298204,
+        "std_f1": 0.044980304764705645
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8293635896004886,
+        "std_f1": 0.07345696731747206
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8292633510389338,
+        "std_f1": 0.0756027638376834
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8291482671122088,
+        "std_f1": 0.054407023646660925
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8290576679562051,
+        "std_f1": 0.04971744911762643
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8288374564204734,
+        "std_f1": 0.06916982492964739
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.828689813652054,
+        "std_f1": 0.07661154448445252
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8285617743265096,
+        "std_f1": 0.0506907449481453
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8277852256477457,
+        "std_f1": 0.07005454219731366
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.8277020605823191,
+        "std_f1": 0.029713563181554214
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8276620747168488,
+        "std_f1": 0.01686493105777091
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8270663617936554,
+        "std_f1": 0.05024006468320198
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8268561338872822,
+        "std_f1": 0.05573582045440021
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.826808597104036,
+        "std_f1": 0.07188070156848413
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8266335407147094,
+        "std_f1": 0.07182790893973381
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8261706354552952,
+        "std_f1": 0.07289206094563745
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8254922549451326,
+        "std_f1": 0.023895503192168915
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8252979535337992,
+        "std_f1": 0.05279859733003871
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8248519300281625,
+        "std_f1": 0.0645165660302414
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8246207182271723,
+        "std_f1": 0.058971151268708125
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8245083207554285,
+        "std_f1": 0.05889989653883011
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8243653437096865,
+        "std_f1": 0.03487566744612098
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8242501533574862,
+        "std_f1": 0.07516317907454718
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8241770010185462,
+        "std_f1": 0.05197609775046773
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8239769135136406,
+        "std_f1": 0.053302195127778194
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8238632367023513,
+        "std_f1": 0.03680281606296987
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8237861541072323,
+        "std_f1": 0.04631042236658041
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8232461189174805,
+        "std_f1": 0.05866104124013354
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.822912963822079,
+        "std_f1": 0.04528730630548424
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8228963130586552,
+        "std_f1": 0.06419269993691983
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8220721013454959,
+        "std_f1": 0.04360254146894048
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.821192050835854,
+        "std_f1": 0.072427756853675
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8211051213751233,
+        "std_f1": 0.06854299834844366
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 96,
+        "mean_f1": 0.8208235068377887,
+        "std_f1": 0.0360157437052094
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 32,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8188905037053509,
+        "std_f1": 0.07424005036012903
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8188849646429706,
+        "std_f1": 0.04605756265780995
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8187417813976339,
+        "std_f1": 0.06322151492014551
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 64,
+        "mean_f1": 0.8183493763540385,
+        "std_f1": 0.07102938678720429
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 32,
+        "mean_f1": 0.8182363395139471,
+        "std_f1": 0.06482884477395262
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 128,
+        "mean_f1": 0.8181679505063864,
+        "std_f1": 0.05012069716962735
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8177281641407653,
+        "std_f1": 0.06077169425815464
+    },
+    {
+        "multiplier": 0.5,
+        "batch_size": 24,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8173467358826066,
+        "std_f1": 0.05555907046281832
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8169172912252272,
+        "std_f1": 0.060562679634307684
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.816296712622399,
+        "std_f1": 0.06246730497538472
+    },
+    {
+        "multiplier": 1,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 64,
+        "mean_f1": 0.8159294300890618,
+        "std_f1": 0.05863623713937286
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.8141129050473541,
+        "std_f1": 0.09461115918742301
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 32,
+        "dropout": 0.3,
+        "width": 96,
+        "mean_f1": 0.814046073257235,
+        "std_f1": 0.10000749221182358
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8133866238101506,
+        "std_f1": 0.061997042786286524
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 16,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8131134883783104,
+        "std_f1": 0.0785335137734597
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.8126890576811924,
+        "std_f1": 0.07504924171216244
+    },
+    {
+        "multiplier": 0.8,
+        "batch_size": 16,
+        "dropout": 0.5,
+        "width": 128,
+        "mean_f1": 0.8097447630581375,
+        "std_f1": 0.07657108602045065
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 32,
+        "mean_f1": 0.808901392560589,
+        "std_f1": 0.04463185387611889
+    },
+    {
+        "multiplier": 0.6,
+        "batch_size": 16,
+        "dropout": 0.4,
+        "width": 64,
+        "mean_f1": 0.8080300460664989,
+        "std_f1": 0.07613736467163172
+    },
+    {
+        "multiplier": 0.7,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.8004817625864302,
+        "std_f1": 0.06371632265339228
+    },
+    {
+        "multiplier": 0.3,
+        "batch_size": 24,
+        "dropout": 0.3,
+        "width": 128,
+        "mean_f1": 0.8004037041405837,
+        "std_f1": 0.036883670346331325
+    },
+    {
+        "multiplier": 0.4,
+        "batch_size": 32,
+        "dropout": 0.5,
+        "width": 96,
+        "mean_f1": 0.7938709398253091,
+        "std_f1": 0.08451638178176775
+    },
+    {
+        "multiplier": 0.9,
+        "batch_size": 24,
+        "dropout": 0.5,
+        "width": 32,
+        "mean_f1": 0.7905963315569466,
+        "std_f1": 0.06151142227294877
+    }
+]
