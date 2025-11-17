@@ -3,7 +3,6 @@ Trainer for the PainTCNBiLSTMAttn model.
 """
 import json
 import time
-from itertools import product
 
 from numpy import array, float32 as numpy_float32, concatenate, round as np_round, linspace, zeros, clip, log, isclose
 from numpy import ndarray
@@ -568,31 +567,6 @@ class PainTCNBiLSTMAttnTrainer:
                 best_f1, best_tau, best_b = f1, tau, b.copy()
 
         return best_tau, best_b, best_f1
-
-    def _search_logit_bias(self, model: PainTCNBiLSTMAttn, val_loader: DataLoader, y_val: ndarray) -> tuple[ndarray, float]:
-        """
-        Search for the best logit bias to maximize macro F1 score on validation data.
-
-        Logit biasing involves adding a constant bias to the logits of each class before
-        applying the softmax function. This technique can help adjust the decision boundaries
-        of the classifier, potentially improving performance metrics such as the F1 score.
-        :param model: The trained classification model.
-        :param val_loader: DataLoader for the validation dataset.
-        :param y_val: The true labels for the validation dataset.
-        :return: Tuple containing the best logit bias array and the corresponding macro F1 score.
-        1. best logit bias: An ndarray of shape (3,) representing the optimal bias for each class.
-        2. corresponding macro F1 score: A float value indicating the highest macro F1 score achieved with the best bias.
-        """
-        logits_val = self._infer_logits_only(model, val_loader)
-        grid = linspace(-0.6, 0.6, 13)
-        best_f1, best_b = -1., zeros(3, dtype=numpy_float32)
-        for b in product(grid, repeat=3):
-            b = array(b, dtype=numpy_float32)
-            pred = (logits_val + b[None, :]).argmax(1)
-            f1 = f1_score(y_val, pred, average='macro', labels=self._classes.copy())
-            if f1 > best_f1:
-                best_f1, best_b = f1, b
-        return best_b, best_f1
 
     @no_grad()
     def _evaluate_metrics(self, model: PainTCNBiLSTMAttn, val_loader: DataLoader) -> tuple[float, ndarray, ndarray]:
