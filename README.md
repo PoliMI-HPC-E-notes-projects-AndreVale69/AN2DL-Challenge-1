@@ -31,6 +31,14 @@ The project includes:
 
 The submissions we created for the challenge are available in the [submissions folder](notebooks/submissions/). These are the submissions that we used to compete in the challenge. Out of 193 teams, we ranked $131^{\text{st}}$ on the public leaderboard and **$\mathbf{32}^{\textbf{nd}}$ on the private leaderboard**. Without using external data or pre-trained models, the private rank is more significant because it reflects the final evaluation.
 
+Team name: `I Neuroni Ribelli`
+
+Team members:
+- [Andrea Valentini](https://github.com/AndreVale69/)
+- [Alberto Ondei](https://github.com/Onda02)
+- [Filippo Barbari](https://github.com/Ledmington)
+- [Abdullah Javed](https://github.com/JavedAbdullah)
+
 ---
 
 ## Prerequisites
